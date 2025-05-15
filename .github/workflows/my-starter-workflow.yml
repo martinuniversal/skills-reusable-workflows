@@ -11,11 +11,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run a multi-line script
-         run:
+        run: |
           call-reusable-workflow:
-                    strategy:
-                     matrix:
-                       nodeversion: [14, 16, 18, 20]
-                     uses: ./.github/workflows/reusable-workflow.yml
-                     with:
-                          node: ${{ matrix.nodeversion }}
+            strategy:
+              matrix:
+                nodeversion: [14, 16, 18, 20]
+            uses: ./.github/workflows/reusable-workflow.yml
+            with:
+              node: ${{ matrix.nodeversion }}
